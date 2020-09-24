@@ -1,2 +1,2 @@
 # Injury_epidemiology_survey_data_analysis
-Survey data analysis
+Survey data analysis using Generalized Estimation Equation

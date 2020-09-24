@@ -51,10 +51,17 @@ str(farmerdat)
 ############################################################
 
 #contingency table 2 by 2
-tbl <- table(farmerdat$operator_num, farmerdat$percent_worktime)
+tbl <- table(farmerdat$resp_exposures___2, farmerdat$resp_exposures___7)
 tbl
-mosaicplot(tbl, main = "operator by sex", color = T)
+mosaicplot(tbl, main = "Title", color = T)
 chisq.test(tbl) #chisquare test (2 groups)
+
+#percentage table
+prop.table(table(farmerdat$resp_exposures___2, farmerdat$resp_exposures___7))*100
+
+#proportion table (currently not using for the study)
+prop.table(table(farmerdat$resp_exposures___2, farmerdat$resp_exposures___7),
+           margin = 2)*100
 
 #operator and age
 
