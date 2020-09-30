@@ -51,7 +51,7 @@ str(farmerdat)
 ############################################################
 
 #contingency table 2 by 2
-tbl <- table(farmerdat$resp_exposures___2, farmerdat$resp_exposures___7)
+tbl <- table(farmerdat$resp_exposures___2, farmerdat$resp_exposures___5)
 tbl
 mosaicplot(tbl, main = "Title", color = T)
 chisq.test(tbl) #chisquare test (2 groups)
@@ -110,9 +110,8 @@ fit.gee2 <- gee(resp_dis_bin~resp_exposures___2, id=record_id, family=binomial,
                 corstr="exchangeable", data=farmerdat) #crude
 
 #multivariate model - adjusted analysis
-fit.gee2 <- gee(resp_dis_bin~resp_exposures___2+percent_worktime+occupation+sex+age_grp+operator_num+rhn_categ+operation+
-                  resp_exposures___3+resp_exposures___4+
-                  resp_exposures___5+resp_exposures___6+resp_exposures___7, id=record_id, family=binomial,
+fit.gee2 <- gee(resp_dis_bin~resp_exposures___7+percent_worktime+occupation+sex+
+                  age_grp+operator_num+rhn_categ+operation, id=record_id, family=binomial,
                 corstr="exchangeable", data=farmerdat) 
 
 summary(fit.gee2)
